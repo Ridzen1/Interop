@@ -38,50 +38,21 @@ async function initDashboard() {
     }
 }
 
-// --- Carte & Trafic ---
+// --- Carte via openstreetmap---
 function initMap(lat, lon) {
     if (map) map.remove();
 
     map = L.map('map').setView([lat, lon], 14);
 
-    const osmLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    // Fond de carte OpenStreetMap classique
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; OpenStreetMap'
-    });
+    }).addTo(map);
 
-    // Clé API TomTom
-    const apiKey = 'ZaGz4vx8gApepdMOxivf4TvHZNYL76fa'; 
-    
-    const trafficLayer = L.tileLayer(`https://api.tomtom.com/traffic/map/4/tile/flow/relative0/{z}/{x}/{y}.png?key=${apiKey}`, {
-        maxZoom: 22,
-        opacity: 0.9,
-        attribution: '&copy; TomTom Traffic'
-    });
-
-    osmLayer.addTo(map);
-    trafficLayer.addTo(map);
-
-    const baseMaps = { "Plan Standard": osmLayer };
-    const overlayMaps = { "🚦 Trafic Temps Réel": trafficLayer };
-
-    L.control.layers(baseMaps, overlayMaps).addTo(map);
-
+    // Marqueur utilisateur
     L.marker([lat, lon]).addTo(map)
         .bindPopup("<b>Votre Position</b><br>(Simulée)").openPopup();
-
-    // Légende
-    const legend = L.control({ position: 'bottomright' });
-    legend.onAdd = function (map) {
-        const div = L.DomUtil.create('div', 'legend');
-        div.innerHTML = `
-            <h4>Info Trafic</h4>
-            <i style="background: #d32f2f"></i> Congestion<br>
-            <i style="background: #ff9800"></i> Ralenti<br>
-            <i style="background: #cccccc; opacity: 0.3"></i> Fluide (Transparent)
-        `;
-        return div;
-    };
-    legend.addTo(map);
 }
 
 // --- Vélos ---
