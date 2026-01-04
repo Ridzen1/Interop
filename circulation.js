@@ -157,7 +157,6 @@ async function getPollutionNancy() {
         
         pollutionContainer.innerHTML = `
             <div style="display:flex; align-items:center; gap:10px;">
-                <div style="width: 40px; height: 40px; background-color: ${couleur}; border-radius: 50%; border: 2px solid #ccc; display:flex; justify-content:center; align-items:center; font-size:1.5em;"></div>
                 <div>
                     <strong>Qualité de l'air :</strong><br>
                     <span style="font-size: 1.2em; color: ${couleur}; font-weight:bold; text-shadow: 1px 1px 1px #555;">${qualiteAir}</span>
