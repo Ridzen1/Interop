@@ -111,6 +111,7 @@ async function getMeteoNancy() {
         meteoTemp = (tempK - 273.15).toFixed(1); 
         meteoWind = parseFloat(echeance.querySelector('vent_moyen level[val="10m"]').textContent).toFixed(1);
         meteoRain = parseFloat(echeance.querySelector('pluie').textContent);
+        const heure = new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute:'2-digit'});
 
         weatherContainer.innerHTML = `
             <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -119,6 +120,8 @@ async function getMeteoNancy() {
                     🌬️ Vent: ${meteoWind} km/h<br>
                     ☔ Pluie: ${meteoRain} mm
                 </div>
+                                    <small style="color:#666">Source: Infoclimat (MàJ : ${heure})</small>
+
             </div>
             <small style="color:#666">Source: Infoclimat</small>
         `;
