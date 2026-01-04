@@ -131,7 +131,7 @@ async function getMeteoNancy() {
 
     } catch (error) {
         console.error("Erreur Météo:", error);
-        weatherContainer.innerHTML = "⚠️ Météo indisponible.";
+        weatherContainer.innerHTML = "Météo indisponible.";
     }
 }
 
@@ -157,7 +157,7 @@ async function getPollutionNancy() {
         
         pollutionContainer.innerHTML = `
             <div style="display:flex; align-items:center; gap:10px;">
-                <div style="width: 40px; height: 40px; background-color: ${couleur}; border-radius: 50%; border: 2px solid #ccc; display:flex; justify-content:center; align-items:center; font-size:1.5em;">😷</div>
+                <div style="width: 40px; height: 40px; background-color: ${couleur}; border-radius: 50%; border: 2px solid #ccc; display:flex; justify-content:center; align-items:center; font-size:1.5em;"></div>
                 <div>
                     <strong>Qualité de l'air :</strong><br>
                     <span style="font-size: 1.2em; color: ${couleur}; font-weight:bold; text-shadow: 1px 1px 1px #555;">${qualiteAir}</span>
@@ -171,7 +171,7 @@ async function getPollutionNancy() {
 
     } catch (error) {
         console.error("Erreur Pollution:", error);
-        pollutionContainer.innerHTML = "⚠️ Pollution indisponible.";
+        pollutionContainer.innerHTML = "Pollution indisponible.";
     }
 }
 
@@ -182,23 +182,23 @@ function calculerDecision() {
     let color = "";
 
     if (qualiteAir === "Mauvais" || qualiteAir === "Très mauvais" || qualiteAir === "Extrêmement mauvais") {
-        message = "⚠️ <b>Pic de pollution !</b><br>Évitez l'effort physique. Prenez le Tram ou le Bus.";
+        message = "<b>Pic de pollution !</b><br>Évitez l'effort physique. Prenez le Tram ou le Bus.";
         color = "#8e44ad";
     } 
     else if (meteoWind > 50) {
-        message = "🌬️ <b>Vent violent !</b><br>Dangereux en vélo. Privilégiez la marche ou le bus.";
+        message = "<b>Vent violent !</b><br>Dangereux en vélo. Privilégiez la marche ou le bus.";
         color = "#e67e22";
     }
     else if (meteoRain > 0.5) {
-        message = "🌧️ <b>Il pleut.</b><br>Ça glisse et ça mouille. Prenez un parapluie mais ne roulez pas.";
+        message = "<b>Il pleut.</b><br>Ça glisse et ça mouille. Prenez un parapluie mais ne roulez pas.";
         color = "#3498db";
     }
     else if (meteoTemp < 5) {
-        message = "❄️ <b>Il fait froid.</b><br>Prenez un vélo, mais gants et écharpe obligatoires !";
+        message = "<b>Il fait froid.</b><br>Prenez un vélo, mais gants et écharpe obligatoires !";
         color = "#2980b9";
     }
     else {
-        message = "🚲 <b>Conditions idéales !</b><br>Foncez prendre un Velolib.";
+        message = "<b>Conditions idéales !</b><br>Foncez prendre un Velolib.";
         color = "#2ecc71";
     }
 

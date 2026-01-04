@@ -1,0 +1,159 @@
+/* --- Global --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    padding: 20px;
+    background-color: #fff;
+}
+
+h2, h3 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+.section-separator {
+    width: 80%;
+    margin: 40px auto;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+/* --- Météo --- */
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 20px auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #0073e6;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* --- Trafic --- */
+#traffic-section {
+    margin: 20px auto;
+    max-width: 1000px;
+    padding: 0 15px;
+}
+
+#traffic-section h3 {
+    border-bottom: 2px solid #e74c3c;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+#map-traffic {
+    height: 450px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Leaflet */
+.popup-content {
+    font-family: sans-serif;
+    min-width: 200px;
+}
+
+.popup-type {
+    color: #c0392b;
+}
+
+.popup-desc {
+    font-size: 0.9em;
+}
+
+.popup-hr {
+    margin: 5px 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+/* --- Section Covid --- */
+.covid-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card-covid {
+    width: 600px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: white;
+}
+
+.card-covid h3 {
+    margin-top: 0;
+}
+
+.chart-box {
+    height: 300px;
+    width: 100%;
+}
+
+.source-text {
+    font-size: 0.8em;
+    color: #777;
+    margin-top: 15px;
+    font-style: italic;
+    text-align: center;
+}
+
+/* --- Footer --- */
+.main-footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    background-color: #f9f9f9;
+    text-align: center;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.main-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-footer li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.main-footer li::before {
+    content: "•";
+    margin-right: 10px;
+    color: #ccc;
+}
+
+.main-footer li:first-child::before {
+    content: "";
+}
+
+.main-footer a {
+    color: #555;
+    text-decoration: none;
+    border-bottom: 1px dotted #999;
+}
+
+.main-footer a:hover {
+    color: #0073e6;
+    border-bottom: 1px solid #0073e6;
+}
