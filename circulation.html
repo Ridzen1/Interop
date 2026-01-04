@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circulations Nancy - Dashboard</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+    <link rel="stylesheet" href="circulation.css">
+</head>
+<body>
+
+    <header>
+        <h1>Circulations Nancy</h1>
+        <p>État du trafic, météo et vélos en temps réel.</p>
+    </header>
+
+    <div class="dashboard-container">
+        <div id="map"></div>
+
+        <aside class="info-panel">
+            <h2>Informations</h2>
+            <div id="user-location">Localisation en cours...</div>
+            <hr>
+            
+            <div id="weather-info">Chargement météo...</div>
+            <hr>
+            
+            <div id="pollution-info">Chargement qualité air...</div>
+            <hr>
+            
+            <div id="decision-result">Calcul de l'itinéraire...</div>
+        </aside>
+    </div>
+
+    <footer>
+        <ul>
+            <li>Pollution : <a href="http://www.atmo-grandest.eu/" target="_blank">ATMO Grand Est (ArcGIS)</a></li>
+            <li>Météo : <a href="https://infoclimat.fr" target="_blank">Infoclimat</a></li>
+            <li>Git : <a href="#">Ton Lien Git</a></li>
+        </ul>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+    <script src="circulation.js"></script>
+</body>
+</html>
