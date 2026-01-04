@@ -17,13 +17,11 @@ async function initDashboard() {
             <strong>IP détectée :</strong> ${data.city} (Simulé à Nancy)<br>
         `;
 
-        // Force Nancy
         userLat = 48.68281757087012; 
         userLon = 6.1611022002743425;
 
         initMap(userLat, userLon);
         
-        // Lancement des API
         getVelosNancy();
         getMeteoNancy();
         getPollutionNancy();
@@ -44,7 +42,7 @@ function initMap(lat, lon) {
 
     map = L.map('map').setView([lat, lon], 14);
 
-    // Fond de carte OpenStreetMap classique
+    // Fond de carte OpenStreetMap
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; OpenStreetMap'

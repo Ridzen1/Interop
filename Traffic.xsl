@@ -17,23 +17,18 @@
 
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                // 1. Récupération des coordonnées (sécurité si vide)
                 var userLat = <xsl:choose><xsl:when test="//user_lat"><xsl:value-of select="//user_lat"/></xsl:when><xsl:otherwise>48.692054</xsl:otherwise></xsl:choose>;
                 var userLon = <xsl:choose><xsl:when test="//user_lon"><xsl:value-of select="//user_lon"/></xsl:when><xsl:otherwise>6.184417</xsl:otherwise></xsl:choose>;
 
-                // 2. Initialisation de la carte
                 var mapTraffic = L.map('map-traffic').setView([userLat, userLon], 13);
 
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '© OpenStreetMap contributors'
                 }).addTo(mapTraffic);
 
-                // Marqueur "Vous êtes ici"
                 L.marker([userLat, userLon]).addTo(mapTraffic)
                     .bindPopup("<b>Votre position</b>");
 
-                // 3. Boucle sur les incidents
-                // Utilisation des backticks (`) pour supporter les guillemets dans les descriptions
                 <xsl:for-each select="traffic_data/incident">
                     L.marker([<xsl:value-of select="lat"/>, <xsl:value-of select="lon"/>])
                         .addTo(mapTraffic)
