@@ -111,8 +111,8 @@ async function getMeteoNancy() {
             <div style="display:flex; justify-content:space-between; align-items:center;">
                 <div style="font-size: 2em;">${meteoTemp}°C</div>
                 <div style="text-align:right;">
-                    🌬️ Vent: ${meteoWind} km/h<br>
-                    ☔ Pluie: ${meteoRain} mm
+                    Vent: ${meteoWind} km/h<br>
+                    Pluie: ${meteoRain} mm
                 </div>
                                     <small style="color:#666">Source: Infoclimat (MàJ : ${heure})</small>
 
