@@ -28,7 +28,6 @@ async function initDashboard() {
 
     } catch (error) {
         console.error(error);
-        // Fallback
         initMap(48.68281757087012, 6.1611022002743425);
         getVelosNancy();
         getMeteoNancy();
@@ -36,19 +35,16 @@ async function initDashboard() {
     }
 }
 
-// --- Carte via openstreetmap---
 function initMap(lat, lon) {
     if (map) map.remove();
 
     map = L.map('map').setView([lat, lon], 14);
 
-    // Fond de carte OpenStreetMap
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; OpenStreetMap'
     }).addTo(map);
 
-    // Marqueur utilisateur
     L.marker([lat, lon]).addTo(map)
         .bindPopup("<b>Votre Position</b><br>(Simulée)").openPopup();
 }
@@ -77,8 +73,8 @@ async function getVelosNancy() {
             if (status) {
                 const popupContent = `
                     <b>${station.name}</b><br>
-                    🚲 Vélos: <strong>${status.num_bikes_available}</strong><br>
-                    🅿️ Places: <strong>${status.num_docks_available}</strong>
+                    Vélos: <strong>${status.num_bikes_available}</strong><br>
+                    Places: <strong>${status.num_docks_available}</strong>
                 `;
                 L.marker([station.lat, station.lon]).addTo(map).bindPopup(popupContent);
             }
